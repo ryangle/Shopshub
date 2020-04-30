@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using Shopshub.Application;
 using Shopshub.Web.Models;
 
 namespace Shopshub.Web.Controllers
@@ -13,18 +14,18 @@ namespace Shopshub.Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IConfiguration _configuration;
+        private readonly IShopServcie _shopServcie;
 
-        public HomeController(ILogger<HomeController> logger, IConfiguration configuration)
+        public HomeController(ILogger<HomeController> logger, IShopServcie shopServcie)
         {
             _logger = logger;
-            _configuration = configuration;
+            _shopServcie = shopServcie;
         }
 
         public IActionResult Index()
         {
             ViewData["Title"] = "Home";
-            ViewData["SiteName"] = _configuration["SiteName"];
+            ViewData["SiteName"] = _shopServcie.GetSiteName();
             return View();
         }
 
