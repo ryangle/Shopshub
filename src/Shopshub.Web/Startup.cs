@@ -4,10 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Shopshub.Application;
+using Shopshub.Dal;
 
 namespace Shopshub.Web
 {
@@ -23,6 +25,12 @@ namespace Shopshub.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ShopshubContext>(options =>
+            {
+                options.UseSqlite(Configuration.GetConnectionString("Default"));
+
+            });
+
             services.AddTransient<IShopServcie, ShopServcie>();
             services.AddControllersWithViews();
         }

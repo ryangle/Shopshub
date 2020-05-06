@@ -251,10 +251,6 @@ paket-files/
 .idea/
 *.sln.iml
 
-# MyProject
-src/MyProject.Web/Logs/*
-src/MyProject.Web.Host/Logs/*
-src/MyProject.IdentityServer/Logs/*
-src/MyProject.HttpApi.Host/Logs/*
-src/MyProject.HttpApi.HostWithIds/Logs/*
-src/MyProject.DbMigrator/Logs/*
+# Shopshub
+src/Shopshub.Web/Logs/*
+src/Shopshub.Dal/Migrations/*
