@@ -1,0 +1,10 @@
+﻿@model List<Shop>
+
+<div class="text-center">
+    <ul>
+        @for (var i = 0; i < Model.Count; i++)
+        {
+            <li>@Model[i].Name - @Model[i].Address</li>
+        }
+    </ul>
+</div>

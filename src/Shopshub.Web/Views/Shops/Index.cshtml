@@ -1,0 +1,10 @@
+﻿@model Shop;
+
+<div class="text-center">
+    <form asp-controller="Shops" asp-action="Index" method="post">
+        <input asp-for="Name" />
+        <br/>
+        <input asp-for="Address" />
+        <button type="submit">Save</button>
+    </form>
+</div>
