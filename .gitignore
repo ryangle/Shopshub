@@ -254,3 +254,4 @@ paket-files/
 # Shopshub
 src/Shopshub.Web/Logs/*
 src/Shopshub.Dal/Migrations/*
+*.db
