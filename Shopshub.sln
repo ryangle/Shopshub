@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopshub.Web", "src\Shopshu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopshub.Application", "src\Shopshub.Application\Shopshub.Application.csproj", "{C81030ED-7646-473E-A759-E06174043545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopshub.Dal", "src\Shopshub.Dal\Shopshub.Dal.csproj", "{BE0D0B38-8233-42F5-8457-5A03E97A942D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopshub.Domain", "src\Shopshub.Domain\Shopshub.Domain.csproj", "{BE0D0B38-8233-42F5-8457-5A03E97A942D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopshub.DbMigrator", "src\Shopshub.DbMigrator\Shopshub.DbMigrator.csproj", "{EB23B5C1-33C6-4F1D-9EC9-BC70A62C9137}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopshub.DbMigrator", "src\Shopshub.DbMigrator\Shopshub.DbMigrator.csproj", "{EB23B5C1-33C6-4F1D-9EC9-BC70A62C9137}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -28,7 +28,7 @@
   </ItemGroup>
   
   <ItemGroup>
-    <ProjectReference Include="..\Shopshub.Dal\Shopshub.Dal.csproj" />
+    <ProjectReference Include="..\Shopshub.Domain\Shopshub.Domain.csproj" />
   </ItemGroup>
 
 </Project>

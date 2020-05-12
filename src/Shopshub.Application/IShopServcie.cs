@@ -1,4 +1,4 @@
-﻿using Shopshub.Dal;
+﻿using Shopshub.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;

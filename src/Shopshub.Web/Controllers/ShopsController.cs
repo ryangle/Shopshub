@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Shopshub.Application;
-using Shopshub.Dal;
+using Shopshub.Domain;
 using Shopshub.Web.Models;
 
 namespace Shopshub.Web.Controllers

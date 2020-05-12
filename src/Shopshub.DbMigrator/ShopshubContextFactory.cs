@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using Shopshub.Dal;
+using Shopshub.Domain;
 using System;
 using System.Collections.Generic;
 using System.IO;

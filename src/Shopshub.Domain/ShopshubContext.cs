@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Shopshub.Dal
+namespace Shopshub.Domain
 {
     public class ShopshubContext : DbContext
     {

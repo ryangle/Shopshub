@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shopshub.Dal
+namespace Shopshub.Domain
 {
     public class Shop
     {
