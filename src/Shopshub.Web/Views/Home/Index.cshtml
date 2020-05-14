@@ -1,13 +1,1 @@
-﻿@{
-    var parms = new Dictionary<string, string>
-{
-                { "speakerId", "11" },
-                { "currentYear", "true" }
-            };
-}
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <a asp-area="Admin" asp-controller="Home">Admin</a><br />
-    <a asp-controller="Home" asp-action="Privacy" asp-all-route-data="parms">privacy</a>
-</div>
+﻿<a asp-area="Admin" asp-controller="Home" asp-action="Index">admin</a>

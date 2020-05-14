@@ -22,15 +22,20 @@ namespace Shopshub.Web.Area.Controllers
             _logger = logger;
             _shopServcie = shopServcie;
         }
-
         public IActionResult Index()
         {
-            ViewData["Title"] = "Admin Home";
-            ViewData["SiteName"] = _shopServcie.GetSiteName();
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Main()
+        {
+            return View();
+        }
+        public IActionResult UserSetting()
+        {
+            return View();
+        }
+        public IActionResult UserPassword()
         {
             return View();
         }
