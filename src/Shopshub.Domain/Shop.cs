@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using System;
 
 namespace Shopshub.Domain
 {
-    public class Shop
+    public class Shop : Entity
     {
-        public Guid Id { get; set; }
+        public string Status { get; set; }
         public string Name { get; set; }
         public string Address { get; set; }
+        public string Logo { get; set; }
     }
 }

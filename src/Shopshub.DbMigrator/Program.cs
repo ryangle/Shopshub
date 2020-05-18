@@ -1,15 +1,23 @@
-﻿using Microsoft.Extensions.Hosting;
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Shopshub.DbMigrator;
 using System;
+using System.Threading.Tasks;
 
 namespace Shopshub.Migrator
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            await CreateHostBuilder(args).RunConsoleAsync();
         }
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-           Host.CreateDefaultBuilder(args);
+           Host.CreateDefaultBuilder(args)
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.AddTransient<InitialDataService>();
+                    services.AddHostedService<DbMigratorService>();
+                });
     }
 }
