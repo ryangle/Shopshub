@@ -15,9 +15,9 @@ namespace Shopshub.Web.Controllers
     public class ShopsController : Controller
     {
         private readonly ILogger<ShopsController> _logger;
-        private readonly IShopServcie _shopServcie;
+        private readonly ShopServcie _shopServcie;
 
-        public ShopsController(ILogger<ShopsController> logger, IShopServcie shopServcie)
+        public ShopsController(ILogger<ShopsController> logger, ShopServcie shopServcie)
         {
             _logger = logger;
             _shopServcie = shopServcie;

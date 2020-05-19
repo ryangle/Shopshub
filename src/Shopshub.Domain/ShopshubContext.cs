@@ -15,8 +15,6 @@ namespace Shopshub.Domain
         public ShopshubContext(DbContextOptions<ShopshubContext> options)
             : base(options)
         {
-
         }
-
     }
 }

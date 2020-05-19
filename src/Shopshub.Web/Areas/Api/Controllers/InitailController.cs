@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Shopshub.Application;
+using Shopshub.Domain;
 using Shopshub.Web.Models;
 
 namespace Shopshub.Web.Area.Controllers
@@ -15,15 +16,20 @@ namespace Shopshub.Web.Area.Controllers
     public class InitailController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IShopServcie _shopServcie;
+        private readonly ShopServcie _shopServcie;
+        private readonly MenuService _menuService;
 
-        public InitailController(ILogger<HomeController> logger, IShopServcie shopServcie)
+        public InitailController(ILogger<HomeController> logger,
+            ShopServcie shopServcie,
+            MenuService menuService)
         {
             _logger = logger;
             _shopServcie = shopServcie;
+            _menuService = menuService;
         }
         public JsonResult<InitialData> Index()
         {
+            var menuInfo = _menuService.GetMenus().ToArray();
             return new JsonResult<InitialData>
             {
                 Code = 1,
@@ -41,30 +47,7 @@ namespace Shopshub.Web.Area.Controllers
                         Image = "/adminstatic/images/logo.png",
                         Href = ""
                     },
-                    MenuInfo = new [] {
-                        new MenuInfo {
-                            Title = "常规管理",
-                            Icon = "fa fa-address-book",
-                            Href = "",
-                            Target = "_self",
-                            Child = new []{
-                                new MenuInfo{
-                                    Title = "主页模板",
-                                    Icon = "fa fa-home",
-                                    Href = "",
-                                    Target = "_self", 
-                                    Child = new []{ 
-                                        new MenuInfo{ 
-                                            Title = "主页一",
-                                            Icon = "fa fa-tachometer",
-                                            Href = "/admin/home/main",
-                                            Target = "_self"
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
+                    MenuInfo = menuInfo
 
 
                 }

@@ -23,7 +23,6 @@ namespace Shopshub.DbMigrator
 
         public Task StopAsync(CancellationToken cancellationToken)
         {
-            Console.WriteLine("Stop");
             return Task.CompletedTask;
         }
     }

@@ -12,12 +12,12 @@ using Shopshub.Web.Models;
 namespace Shopshub.Web.Area.Controllers
 {
     [Area("Admin")]
-    public class LoginController : Controller
+    public class MenuController : Controller
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ShopServcie _shopServcie;
 
-        public LoginController(ILogger<HomeController> logger, ShopServcie shopServcie)
+        public MenuController(ILogger<HomeController> logger, ShopServcie shopServcie)
         {
             _logger = logger;
             _shopServcie = shopServcie;

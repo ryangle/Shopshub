@@ -7,6 +7,8 @@ namespace Shopshub.Domain
     public class Menu : Entity
     {
         public Guid ParentId { get; set; }
+        public int Order { get; set; }
+        public string Permission { get; set; }
         public string Title { get; set; }
         public string DisplayName { get; set; }
         public string Href { get; set; }

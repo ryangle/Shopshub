@@ -15,9 +15,9 @@ namespace Shopshub.Web.Area.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IShopServcie _shopServcie;
+        private readonly ShopServcie _shopServcie;
 
-        public HomeController(ILogger<HomeController> logger, IShopServcie shopServcie)
+        public HomeController(ILogger<HomeController> logger, ShopServcie shopServcie)
         {
             _logger = logger;
             _shopServcie = shopServcie;

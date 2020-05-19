@@ -7,7 +7,7 @@ using System.Linq;
 
 namespace Shopshub.Application
 {
-    public class ShopServcie : IShopServcie
+    public class ShopServcie
     {
         private readonly IConfiguration _configuration;
         private readonly ShopshubContext _shopshubContext;

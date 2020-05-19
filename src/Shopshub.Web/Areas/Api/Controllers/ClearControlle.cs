@@ -15,9 +15,9 @@ namespace Shopshub.Web.Area.Controllers
     public class ClearControlle : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly IShopServcie _shopServcie;
+        private readonly ShopServcie _shopServcie;
 
-        public ClearControlle(ILogger<HomeController> logger, IShopServcie shopServcie)
+        public ClearControlle(ILogger<HomeController> logger, ShopServcie shopServcie)
         {
             _logger = logger;
             _shopServcie = shopServcie;
