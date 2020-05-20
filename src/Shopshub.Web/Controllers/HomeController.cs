@@ -24,6 +24,7 @@ namespace Shopshub.Web.Controllers
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Request Home");
             ViewData["Title"] = "Home";
             ViewData["SiteName"] = _shopServcie.GetSiteName();
             return View();
