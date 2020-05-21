@@ -28,6 +28,21 @@ namespace Shopshub.Application
             var menus = _shopshubContext.Menus.Where(m => true).OrderByDescending(m => m.Order).ToList();
             return MenuTree(menus, Guid.Empty);
         }
+        public List<MenuDto> GetMenuList()
+        {
+            var menus = _shopshubContext.Menus.Where(m => true).OrderByDescending(m => m.Order).ToList();
+            return menus.Select(m => new MenuDto
+            {
+                MenuId = m.Id.ToString(),
+                ParentId = m.ParentId.ToString(),
+                Order = m.Order,
+                Title = m.Title,
+                Href = m.Href,
+                Icon = m.Icon,
+                Target = m.Target,
+                CreationTime = m.CreationTime.ToString("yyyy-MM-dd HH:mm:ss")
+            }).ToList();
+        }
         private List<MenuInfo> MenuTree(List<Menu> list, Guid parentId)
         {
             var result = new List<MenuInfo>();

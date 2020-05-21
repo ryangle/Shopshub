@@ -8,6 +8,7 @@ namespace Shopshub.Application
     {
         public int Code { get; set; }
         public string Msg { get; set; }
+        public int Count { get; set; }
         public TData Data { get; set; }
     }
 }

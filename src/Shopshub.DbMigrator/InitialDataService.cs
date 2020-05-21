@@ -24,6 +24,10 @@ namespace Shopshub.DbMigrator
             {
                 _shopshubContext.Menus.Add(m);
             }
+            foreach (var u in InitialUser())
+            {
+                _shopshubContext.Users.Add(u);
+            }
             _shopshubContext.SaveChanges();
             _logger.LogInformation("InitialDataService complated");
         }
@@ -152,7 +156,7 @@ namespace Shopshub.DbMigrator
                 Id = Guid.NewGuid(),
                 Title = "菜单管理",
                 Icon = "fa fa-window-maximize",
-                Href = "adminstatic/page/menu.html",
+                Href = "/admin/menu",
                 Target = "_self",
                 ParentId = cggl.Id,
                 CreationTime = DateTime.Now,
@@ -171,8 +175,41 @@ namespace Shopshub.DbMigrator
                 Order = 11
             };
             menus.Add(xtsz);
+            var yhgl = new Menu
+            {
+                Id = Guid.NewGuid(),
+                Title = "用户管理",
+                Icon = "fa fa-window-maximize",
+                Href = "/admin/user",
+                Target = "_self",
+                ParentId = cggl.Id,
+                CreationTime = DateTime.Now,
+                Order = 12
+            };
+            menus.Add(yhgl);
             #endregion
             return menus;
+        }
+
+        private List<User> InitialUser()
+        {
+            var users = new List<User>();
+            for (int i = 0; i < 10; i++)
+            {
+                users.Add(new User
+                {
+                    Id = Guid.NewGuid(),
+                    Gender = i % 2,
+                    FirstName = "张",
+                    LastName = $"大{i}",
+                    Password = "123456",
+                    Address = $"中国，北京，{i}",
+                    Score = i,
+                    NickName = $"老{i}"
+                });
+
+            }
+            return users;
         }
     }
 }

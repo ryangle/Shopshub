@@ -33,6 +33,7 @@ namespace Shopshub.Web
 
             services.AddTransient<ShopServcie>();
             services.AddTransient<MenuService>();
+            services.AddTransient<UserServcie>();
             services.AddControllersWithViews();
         }
 

@@ -27,7 +27,7 @@
       "checked": 0,
       "updateTime": "2018/07/13 09:13:42",
       "isMenu": 0,
-      "parentId": 1
+      "parentId": -1
     },
     {
       "authorityId": 3,
@@ -39,8 +39,8 @@
       "authority": "user:view",
       "checked": 0,
       "updateTime": "2018/07/21 13:54:16",
-      "isMenu": 1,
-      "parentId": 2
+      "isMenu": 0,
+      "parentId": 1
     },
     {
       "authorityId": 4,

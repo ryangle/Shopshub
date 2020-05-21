@@ -10,30 +10,45 @@ using Shopshub.Application;
 using Shopshub.Domain;
 using Shopshub.Web.Models;
 
-namespace Shopshub.Web.Area.Controllers
+namespace Shopshub.Web.Api.Controllers
 {
     [Area("Api")]
-    public class InitailController : Controller
+    public class DataController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<DataController> _logger;
         private readonly ShopServcie _shopServcie;
         private readonly MenuService _menuService;
+        private readonly UserServcie _userServcie;
 
-        public InitailController(ILogger<HomeController> logger,
+        public DataController(ILogger<DataController> logger,
             ShopServcie shopServcie,
-            MenuService menuService)
+            MenuService menuService,
+            UserServcie userServcie)
         {
             _logger = logger;
             _shopServcie = shopServcie;
             _menuService = menuService;
+            _userServcie = userServcie;
         }
-        public JsonResult<InitialData> Index()
+        public JsonResult<MenuDto[]> Menu()
+        {
+            var menuInfo = _menuService.GetMenuList().ToArray();
+            return new JsonResult<MenuDto[]>
+            {
+                Code = 0,
+                Msg = "",
+                Count = menuInfo.Length,
+                Data = menuInfo
+            };
+        }
+        public JsonResult<InitialData> Initial()
         {
             var menuInfo = _menuService.GetMenus().ToArray();
             return new JsonResult<InitialData>
             {
                 Code = 1,
                 Msg = "",
+                Count = 0,
                 Data = new InitialData
                 {
                     HomeInfo = new HomeInfo
@@ -53,6 +68,25 @@ namespace Shopshub.Web.Area.Controllers
                 }
             };
         }
-
+        public JsonResult<string> Clear()
+        {
+            return new JsonResult<string>
+            {
+                Code = 1,
+                Msg = "清理成功",
+                Data = ""
+            };
+        }
+        public JsonResult<UserDto[]> Users()
+        {
+            var users = _userServcie.GetUsers().ToArray();
+            return new JsonResult<UserDto[]>
+            {
+                Code = 0,
+                Msg = "",
+                Count = users.Length,
+                Data = users
+            };
+        }
     }
 }

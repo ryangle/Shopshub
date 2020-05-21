@@ -6,6 +6,13 @@ namespace Shopshub.Domain
 {
     public class User : Entity
     {
+        public string Password { get; set; }
+        public DateTime Birthday { get; set; }
+        public int Gender { get; set; }
+        public double Wealth { get; set; }
+        public double Score { get; set; }
+        public int Experience { get; set; }
+        public string Comment { get; set; }
         public Role[] Roles { get; set; }
         public string Status { get; set; }
         public string NickName { get; set; }

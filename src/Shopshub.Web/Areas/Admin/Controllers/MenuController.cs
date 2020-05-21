@@ -14,10 +14,10 @@ namespace Shopshub.Web.Area.Controllers
     [Area("Admin")]
     public class MenuController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<MenuController> _logger;
         private readonly ShopServcie _shopServcie;
 
-        public MenuController(ILogger<HomeController> logger, ShopServcie shopServcie)
+        public MenuController(ILogger<MenuController> logger, ShopServcie shopServcie)
         {
             _logger = logger;
             _shopServcie = shopServcie;

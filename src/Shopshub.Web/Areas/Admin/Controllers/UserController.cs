@@ -11,26 +11,20 @@ using Shopshub.Web.Models;
 
 namespace Shopshub.Web.Area.Controllers
 {
-    [Area("Api")]
-    public class ClearControlle : Controller
+    [Area("Admin")]
+    public class UserController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ILogger<UserController> _logger;
         private readonly ShopServcie _shopServcie;
 
-        public ClearControlle(ILogger<HomeController> logger, ShopServcie shopServcie)
+        public UserController(ILogger<UserController> logger, ShopServcie shopServcie)
         {
             _logger = logger;
             _shopServcie = shopServcie;
         }
-        public JsonResult<string> Index()
+        public IActionResult Index()
         {
-            return new JsonResult<string>
-            {
-                Code = 1,
-                Msg = "清理成功",
-                Data = ""
-            };
+            return View();
         }
-
     }
 }
