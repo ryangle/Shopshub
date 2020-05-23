@@ -2,8 +2,11 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Localization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +34,17 @@ namespace Shopshub.Web
 
             });
 
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme, o =>
+                {
+                    //登录路径：这是当用户试图访问资源但未经过身份验证时，程序将会将请求重定向到这个相对路径
+                    o.LoginPath = new PathString("/Admin/User/Login");
+
+                    //禁止访问路径：当用户试图访问资源时，但未通过该资源的任何授权策略，请求将被重定向到这个相对路径。
+                    o.AccessDeniedPath = new PathString("/Admin/Home/Privacy");
+                    o.Cookie.Name = "shopshub";
+                });
+
             services.AddTransient<ShopServcie>();
             services.AddTransient<MenuService>();
             services.AddTransient<UserServcie>();
@@ -50,8 +64,14 @@ namespace Shopshub.Web
             }
             app.UseStaticFiles();
 
+            app.UseRequestLocalization(o =>
+            {
+                o.RequestCultureProviders.Clear();
+            });
+
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
