@@ -6,6 +6,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -20,6 +21,7 @@ namespace Shopshub.Web.Area.Controllers
         public string Password { get; set; }
         public string Captcha { get; set; }
     }
+    [Authorize]
     [Area("Admin")]
     public class UserController : Controller
     {
@@ -35,18 +37,22 @@ namespace Shopshub.Web.Area.Controllers
         {
             return View();
         }
+        [AllowAnonymous]
         [HttpGet]
         public IActionResult Login()
         {
             return View();
         }
+
+        [AllowAnonymous]
         [HttpPost]
         public async Task<JsonResult<string>> Login(LoginDto loginDto)
         {
             if (loginDto.Username.Equals("admin") && loginDto.Password.Equals("123456"))
             {
                 var claims = new List<Claim>(){
-                    new Claim(ClaimTypes.Name,loginDto.Username)
+                    new Claim(ClaimTypes.Name,loginDto.Username),
+                    new Claim(ClaimTypes.Role, "Administrator")
                 };
 
                 var userPrincipal = new ClaimsPrincipal(new ClaimsIdentity(claims, "Customer"));

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
@@ -12,6 +13,7 @@ using Shopshub.Web.Models;
 
 namespace Shopshub.Web.Api.Controllers
 {
+    [Authorize(Roles = "Administrator")]
     [Area("Api")]
     public class DataController : Controller
     {

@@ -12,7 +12,7 @@ using Shopshub.Web.Models;
 
 namespace Shopshub.Web.Area.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Administrator")]
     [Area("Admin")]
     public class HomeController : Controller
     {
@@ -28,7 +28,11 @@ namespace Shopshub.Web.Area.Controllers
         {
             return View();
         }
-
+        [AllowAnonymous]
+        public IActionResult Privacy()
+        {
+            return View();
+        }
         public IActionResult Main()
         {
             return View();
