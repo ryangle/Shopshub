@@ -1,26 +1,16 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="no-js">
 <head>
     <meta charset="utf-8">
-    <title>测试</title>
-    <meta name="renderer" content="webkit">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <link rel="icon" href="adminstatic/images/favicon.ico">
-    <link rel="stylesheet" href="adminstatic/lib/layui-v2.5.5/css/layui.css" media="all">
-    <link rel="stylesheet" href="adminstatic/css/layuimini.css?v=2.0.4.2" media="all">
-    <link rel="stylesheet" href="adminstatic/css/themes/default.css" media="all">
-    <link rel="stylesheet" href="adminstatic/lib/font-awesome-4.7.0/css/font-awesome.min.css" media="all">
-    <style id="layuimini-bg-color">
-    </style>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Shops hub</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    @RenderSection("Styles")
 </head>
-<body class="layui-layout-body layuimini-all">
-
+<body>
     @RenderBody()
 
+    @RenderSection("Scripts")
 </body>
 </html>
