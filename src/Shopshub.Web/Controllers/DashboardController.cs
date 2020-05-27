@@ -24,5 +24,9 @@ namespace Shopshub.Web.Controllers
         {
             return View();
         }
+        public IActionResult Page2()
+        {
+            return View();
+        }
     }
 }
